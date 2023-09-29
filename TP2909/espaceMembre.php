@@ -8,6 +8,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['typeMembre'])) {
     $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
     $typeMembre = htmlspecialchars($typeMembre, ENT_QUOTES, 'UTF-8');
 
+    // même chose que pour connexion.php
+
     echo "<!DOCTYPE html>
 <html lang='fr'>
 <head>
@@ -19,6 +21,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['typeMembre'])) {
 <body>
     <h1>Bienvenue $email dans l'Espace Membre $typeMembre</h1>
     <p>Contenu spécifique au membre $typeMembre.</p>
+    <!--ceci permet de générer dynamiquement des données en front par rapport aux variables SESSION-->
     <form action='deconnexion.php' method='post'>
         <input type='submit' value='Déconnexion'>
     </form>

@@ -7,13 +7,19 @@ $mot_de_passe_valide_commercial = "commerce123@";
 $email_valide_comptable = "comptable@gmail.com";
 $mot_de_passe_valide_comptable = "compta123@";
 
+// ceci est comme la base de données, on définit 2 users : un commercial et un comptable
+
 try {
     if (isset($_POST['email']) && isset($_POST['password'])) {
+        // ceci sert pour la sécurité,
+        // on vérifie que les champs sont bien remplis
         $email = $_POST['email'];
         $mot_de_passe = $_POST['password'];
 
         $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
         $mot_de_passe = htmlspecialchars($mot_de_passe, ENT_QUOTES, 'UTF-8');
+
+        //l'utilisation de htmlspecialchars permet de sécuriser les données entrées par l'utilisateur
 
         if ($email === $email_valide_commercial && $mot_de_passe === $mot_de_passe_valide_commercial) {
             $_SESSION['email'] = $email;
@@ -40,8 +46,12 @@ try {
         margin-top: 10px; 
     '>Nom d'utilisateur ou mot de passe incorrect.</div>";
         }
+
+        //la série de if permet de vérifier si les données entrées par l'utilisateur correspondent
+        // à celles de la "base de données"
     }
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
+    //permet de gérer les erreurs
 }
 ?>
