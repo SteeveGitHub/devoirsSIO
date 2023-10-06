@@ -6,7 +6,7 @@ session_destroy();
 
 // on détruit la session
 
-header("Location: connexion.html");
+header("Location: login.html");
 // redirection vers la page de connexion
 exit();
 ?>
